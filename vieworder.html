@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ <style>
+  .card-width{
+  width:300px;
+  }
+
+img{
+opacity:0.6;
+}
+.back-color{
+background:#F9C7B4;
+}
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position:absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 300px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+footer {
+  
+   position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightgray;
+   color: white;
+   text-align: center;
+}
+   
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-lighter navbar-dark">
+   <a class="navbar-brand" href="#">
+    <img class="rounded-circle" alt="100x100" src="https://image.shutterstock.com/image-vector/colorful-gift-logo-design-template-260nw-1029675823.jpg" style="width:20%">
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    
+</nav>
+<nav class="navbar navbar-expand-md bg-info navbar-dark">
+   <a class="navbar-brand" href="#">
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+	<li class="nav-item">
+        <a class="nav-link active" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="placeorder.html">Place Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="vieworder.html">View Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="contact.html">Contact Us</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+
+ <div class="sidebar">
+               <a href="index.html">Home</a>
+               <a href="placeorder.html">Place Order</a>
+               <a href="vieworder.html">View Orders</a>
+				<a href="contact.html">Contact Us</a>
+ </div>
+	<div class="container">
+	<div class="row">
+<div class="col-lg-3 col-sm-0 col-md-3"></div>
+	<div class="col-lg-9 col-md-9 col-sm-12">
+  <h2>View Gift Cards</h2>
+                              <div class="container">
+							  <div class="table-responsive mt-5">
+                              <table id="display" class="table">
+                                                                                
+                               </table>
+							   </div></div>
+							   
+</div>
+</div>
+</div>
+</div>
+
+<footer class="page-footer fixed-bottom">
+         <script>
+                  var addCard =JSON.parse(sessionStorage.getItem('addCard'));
+                   var size=addCard.length;
+				   alert(addCard.length);
+                  document.getElementById('display').innerHTML='<thead><tr><th>S.No</th><th>Buyers Name</th><th>Shipping Address</th><th>City</th><th>Amount</th><th>Phone.no</th></tr></thead>';
+                  document.getElementById('display').innerHTML+='<tbody>';
+				  j=0;
+                  for(i=0;i<size; i++)
+                      {
+					 j++;
+                             document.getElementById('display').innerHTML+='<tr><td>'+j+'</td><td>'+addCard[i].addBfname+'</td><td>'+addCard[i].addStreet+'</td><td>'+addCard[i].addCity+'</td><td>'+addCard[i].addAmount+'</td><td>'+addCard[i].addPhone+'</td></tr>'
+                      
+					  }
+                  document.getElementById('display').innerHTML+='</tbody>';
+          </script>
+ 2020 @Copyright
+</footer>
+<script>
+</body>
+</html>
+
+ 
